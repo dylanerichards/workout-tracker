@@ -36,7 +36,7 @@
       <td><%= workout.workout_type.capitalize %></td>
       <td><%= workout.duration %></td>
       <td><%= workout.day_of_week %></td>
-      <td><%= workout.workout_category.name %></td>
+      <td><%= link_to workout.workout_category.name, workout.workout_category %></td>
     </tr>
     <% end %>
   </tbody>

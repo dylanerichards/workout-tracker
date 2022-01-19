@@ -1,0 +1,8 @@
+<h1>Viewing Workouts for worout category: <%= "#{@workout_category.name}" %></h1>
+
+<ol>
+  <% @workouts.each do |workout| %>
+    <li><%= workout.workout_type %></li>
+  <% end %>
+</ol>
+
