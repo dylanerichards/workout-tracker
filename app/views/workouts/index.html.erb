@@ -16,6 +16,10 @@
 
 <table class="table table-hover">
   <thead>
+    <h1>
+      Total Workouts: <%= Workout.all.count %>
+    </h1>
+
     <tr>
       <th scope="col">Workout</th>
       <th scope="col">Duration</th>
@@ -37,4 +41,4 @@
 
 <%= pie_chart Workout.group(:workout_type).count %>
 
-
+<%= column_chart Workout.group_by_day_of_week(:date, format: "%A").count %>
