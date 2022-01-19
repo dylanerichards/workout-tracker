@@ -10,6 +10,9 @@
   <%= form.label :date %>
   <%= form.datetime_field :date %>
 
+  <%= form.collection_select :workout_category_id, WorkoutCategory.all, :id, :name %>
+
+
   <%= form.submit "Add Workout" %>
 <% end %>
 
@@ -23,8 +26,8 @@
     <tr>
       <th scope="col">Workout</th>
       <th scope="col">Duration</th>
-      <th scope="col">Date</th>
       <th scope="col">Day</th>
+      <th scope="col">Workout Type</th>
     </tr>
   </thead>
   <tbody>
@@ -32,8 +35,8 @@
     <tr>
       <td><%= workout.workout_type.capitalize %></td>
       <td><%= workout.duration %></td>
-      <td><%= workout.date %></td>
       <td><%= workout.day_of_week %></td>
+      <td><%= workout.workout_category.name %></td>
     </tr>
     <% end %>
   </tbody>
@@ -41,4 +44,4 @@
 
 <%= pie_chart Workout.group(:workout_type).count %>
 
-<%= column_chart Workout.group_by_day_of_week(:date, format: "%A").count %>
+<%# <%= column_chart Workout.group_by_day_of_week(:date, format: "%A").count %1> %>

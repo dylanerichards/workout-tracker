@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   def index
-    @workouts = Workout.first(10)
+    @workouts = Workout.last(3)
   end
 
   def create
@@ -15,6 +15,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:workout_type, :duration, :date)
+    params.require(:workout).permit(:workout_type, :duration, :date, :workout_category_id)
   end
 end
